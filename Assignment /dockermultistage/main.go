@@ -1,0 +1,18 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello,This is Docker")
+}
+
+func main() {
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe(":2020", nil))
+}
+
+
